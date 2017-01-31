@@ -1,0 +1,25 @@
+1. Chapter 1
+
+	a. Compare and contrast data, databases, database (management) systems and information systems.
+
+	Data are recordable facts with implicit meaning. A database is simply a collection of data. Database Management Systems (DBMS) are software applications that enable databases to be created, stored, and manipulated. An information system contains both a DBMS and one or more databases.
+	
+	b. Compare and contrast database systems with the following, using the main characteristics of the database approach in your discussion. 
+		* data structures and algorithms
+		* traditional file systems
+		
+	Databases are similar to a data structure in that they store data. The data structures used to implement a database will depend on the DBMS. The main difference between a database and a file system is that a database has some sort of structure for data in which each datum in a category (i.e. a table) is comparable.
+		
+	c. Identify the stakeholders of database systems.
+	
+	- Database administrators
+	- Database designers
+	- End users (Various)
+
+2. Chapter 2
+
+a. Explain the significance of the categories of data models. Which type of model is displayed in Figure 2.1?
+
+b. Explain the structure and significance of the three-schema architecture.
+
+c. Explain the tiers used in a typical web-based information system.
