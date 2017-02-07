@@ -18,8 +18,20 @@
 
 2. Chapter 2
 
-a. Explain the significance of the categories of data models. Which type of model is displayed in Figure 2.1?
+	a. Explain the significance of the categories of data models. Which type of model is displayed in Figure 2.1?
+		Conceptual Data Models: Approximation of the way users perceive data.
+		Physical Data Models: Describe how data is stored in computer storage media.
+		Representational Data Models: Midpoint between conceptual and physical data models, can be understood by users but also implemented on a system.
 
-b. Explain the structure and significance of the three-schema architecture.
 
-c. Explain the tiers used in a typical web-based information system.
+	b. Explain the structure and significance of the three-schema architecture.
+		Internal schema: Physical storage structure
+		Conceptual schema: Structure of the entire database for a community of users
+		External schemas: Schemas that describe part of the database for a particular user group
+	
+	c. Explain the tiers used in a typical web-based information system.
+		Client - Web interface
+		Web server - Programs used for business logic and access control
+		Database Server - DBMS
+	
+	
