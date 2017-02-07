@@ -1,0 +1,24 @@
+1. Chapter 5 (focus primarily on Sections 5.1–5.2)
+
+	a. Who invented the relational data model? When and where did they do their work?
+		The relational model was introduced by Ted Codd in 1970. 
+	
+	b. Explain the following terms:
+		i. relation
+			A relation connects related data points to an entity or concept, typically stored in a table as a row.
+		ii. attribute
+			One member of a relation. Relations are defined as a list of attributes.
+		iii. domain
+			Possible values of A in a relation schema.
+		iv. n-tuple
+			Ordered list of values within an attribute domain.
+		v. NULL value
+			A value included in the domain of all attributes that represents attributes that are unknown or not applicable.
+		vi. primary, foreign, candidate and super keys
+			A set of attributes that is unique within a relation schema are super keys. If there is more than one possible key for a relation schema, they are known as candidate keys.  The primary key is the candidate key used to identify a relation within a schema.
+		vii. referenced and referencing records
+			
+
+	c. Are tuples in a relation ordered? How about attribute values in a tuple? Explain why or why not.
+
+	d. Can attributes have multiple values in a single n-tuple? Why or why not?
