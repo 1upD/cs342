@@ -1,1 +1,27 @@
 2.13. Choose a database application with which you are familiar. Design a schema and show a sample database for that application, using the notation of Figures 1.2 and 2.1. What types of additional information and contraints would you like to represent in the schema? Think of several users of your database and design a view for each.
+
+SCHOOL
+id		name
+0		Calvin College
+1		Cedarville University
+2		Community College of Baltimore County
+
+CLASS
+id		department_id		class_number	class_name
+0		0					108				Intro to Computing
+1		0					108L			Intro to Computing Lab
+
+DEPARTMENT
+id		name
+0		Computer Science
+
+SECTION
+id		class_id	start_time		end_time	professor		Monday		Tuesday		Wednesday		Thursday		Friday
+0		0			1:30PM			2:20PM		0				TRUE		FALSE		TRUE			FALSE			TRUE
+1		1			1:30PM			3:20PM		0				FALSE		FALSE		FALSE			TRUE			FALSE
+2		1			8:00AM			9:00AM		0				FALSE		FALSE		FALSE			TRUE			FALSE
+
+PROFESSOR
+id		name
+0		Victor T. Norman
+
