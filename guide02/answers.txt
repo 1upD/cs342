@@ -17,8 +17,10 @@
 		vi. primary, foreign, candidate and super keys
 			A set of attributes that is unique within a relation schema are super keys. If there is more than one possible key for a relation schema, they are known as candidate keys.  The primary key is the candidate key used to identify a relation within a schema.
 		vii. referenced and referencing records
-			
+			A referenced relation is identified by a foreign key in another relation, known as the referencing relation.
 
 	c. Are tuples in a relation ordered? How about attribute values in a tuple? Explain why or why not.
-
+		Attribute values in a tuple are ordered, but tuples in a relation are not ordered. Each tuple is distinct, but values within the tuple may not to be ordered depending on what datum is being modeled by the tuple.
+	
 	d. Can attributes have multiple values in a single n-tuple? Why or why not?
+		No, within an n-tuple each attribute must have one value.
