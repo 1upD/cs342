@@ -1,0 +1,5 @@
+1.14.a. If the name of the CS Department changes to CSSE Dand the corresponding prefix for the course number also changes, identify the columns in the database that would need to be updated.
+	With the current schema, Course_number in COURSE will need to be updated, Course_number in SECTION will needd to be updated, and Course_number and Prerequisite_number in PREREQUISITE will need to be updated.
+
+1.14.b. Can you restructure the columns in the Course, Section, and Prerequisite tables so that only one column will need to be updated?
+	Adding a new table of department prefixes and identifying department with a foreign key would allow the change to the prefix to be made while only updating one column.

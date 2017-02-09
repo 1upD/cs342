@@ -1,0 +1,1 @@
+2.13. Choose a database application with which you are familiar. Design a schema and show a sample database for that application, using the notation of Figures 1.2 and 2.1. What types of additional information and contraints would you like to represent in the schema? Think of several users of your database and design a view for each.
