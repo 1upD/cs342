@@ -1,0 +1,14 @@
+a. The original IMDB Movie table included fields for both score and votes. Can you add a constraint (using the mechanisms we’ve studied) the requires that all movies having a non-NULL score value must also have more than 1000 votes? If so, explain what constraint you’d specify; if not, include an explanation of why it’s not possible.
+
+	CHECK (votes > 1000 OR score is NULL)
+
+	The constraint can be added by creating a check for the condition that the score is null or that the number of votes is greater than 1000. If both of those conditions are false, the record violates the constraint.
+
+b. Database systems, including Oracle, allow DBAs to create separate constraints that are set on given tables, which allows DBAs to turn constraints off and on during database operations, e.g.:
+
+ALTER TABLE tableName
+    ADD CONSTRAINT constraintName
+    someConstraint;
+Can you imagine when, if ever, you might want to separate a constraint from the table definition it modifies? If so, describe the circumstances; if not, explain why not.
+
+	There may be a constraint that depends on some other variable in the system and needs to be able to be updated from a stored procedure.

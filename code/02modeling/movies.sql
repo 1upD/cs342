@@ -15,8 +15,10 @@ CREATE TABLE Movie (
 	title varchar(70) NOT NULL, 
 	year decimal(4), 
 	score float,
+	votes integer,
 	PRIMARY KEY (id),
-	CHECK (year > 1900)
+	CHECK (year > 1900),
+	CHECK (votes > 1000 OR score is NULL)
 	);
 
 CREATE TABLE Performer (
@@ -35,8 +37,8 @@ CREATE TABLE Casting (
 	);
 
 -- Load sample data
-INSERT INTO Movie VALUES (1,'Star Wars',1977,8.9);
-INSERT INTO Movie VALUES (2,'Blade Runner',1982,8.6);
+INSERT INTO Movie VALUES (1,'Star Wars',1977,8.9, 10000);
+INSERT INTO Movie VALUES (2,'Blade Runner',1982,8.6, 2000);
 
 INSERT INTO Performer VALUES (1,'Harrison Ford');
 INSERT INTO Performer VALUES (2,'Rutger Hauer');
