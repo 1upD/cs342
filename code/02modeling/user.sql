@@ -1,0 +1,17 @@
+-- Lab 2, do-this
+--
+-- CS 342, Spring, 2015
+-- kvlinden
+
+CREATE
+    USER kvlinden
+    IDENTIFIED BY MY_SECRET_PASSWORD;
+
+GRANT
+    CREATE SESSION,
+    CREATE TABLE,
+    CREATE VIEW,
+    CREATE MATERIALIZED VIEW,
+    UNLIMITED TABLESPACE,
+    CREATE SEQUENCE
+    TO kvlinden;

@@ -1,0 +1,19 @@
+1. Read Chapter 3.
+	a. Compare and contrast the database and the software design processes. Are agile modeling practices applicable to database design as well?
+		
+	
+	b. Explain the following terms: entities, relationships (including cardinality and participation constraints), attributes (simple, composite, multi-valued and derived).
+		Entity: A real, discrete, independent object that can be described by one or more attributes, while simple attribrutes are indivisible. 
+		Relationship: A reference from one entity to another entity.
+		Attribute: A property of an entity. Composite attributes can be split into multiple attributes. 
+	c. Explain weak entities and identifying relationships.
+		Weak entity types are entity types that do not have keys. An identifying relationship relates a weak entity type to a strong entity type.
+	d. Model a person-household database (from class 2) using an ERD.
+		
+
+Note the ERD reference sheet in Figure 3.14.
+
+2. Read Chapter 9.
+	a. Map the ERD model from above to a relational database model.
+
+	b. Explain how to map from a UML model to a relational database model. We will address this issue more carefully in a later unit (on object-relational mapping). 
