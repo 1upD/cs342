@@ -1,0 +1,9 @@
+	a. Explain the four informal guidelines discussed in Section 15.1.
+		Inference rule: X->Y implied by F on R if for every r in R that satisfies F, X->Y is also true.
+		
+	b. Explain the following terms: functional dependency (for Monday, see Section 15.2), multi-valued dependency (for Wednesday, see Section 15.6).
+	c. Explain BCNF (for Monday, see Section 15.5) and 4NF (for Wednesday, see Section 15.6) and be able to prove that a schema conforms (or fails to conform) to the definitions of those normal forms.
+	d. Explain why one would one want to
+		i.	normalize relations.
+		ii.	de-normalize relations.
+	e. Describe 1NF, 2NF and 3NF (see Section 15.3-4) and 5NF (see Section 15.7). Note that these forms are less important than BCNF and 4NF.
