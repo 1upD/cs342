@@ -1,6 +1,6 @@
 1. Read Chapter 3.
 	a. Compare and contrast the database and the software design processes. Are agile modeling practices applicable to database design as well?
-		
+		Databases have more intertia than software and require more prior planning. This makes Agile development more difficult although not impossible. The applications built around databases may be agile, but there is a certain extent to which a database must be planned and documented before anything can be produced because every aspect of the database relies on the complete schema.
 	
 	b. Explain the following terms: entities, relationships (including cardinality and participation constraints), attributes (simple, composite, multi-valued and derived).
 		Entity: A real, discrete, independent object that can be described by one or more attributes, while simple attribrutes are indivisible. 
@@ -15,5 +15,9 @@ Note the ERD reference sheet in Figure 3.14.
 
 2. Read Chapter 9.
 	a. Map the ERD model from above to a relational database model.
-
+		Person: id, Title, Name, Sex, Gender, Membership
+		Household: id, Address
+		PersonHousehold: personId, householdId, RoleType
+		
 	b. Explain how to map from a UML model to a relational database model. We will address this issue more carefully in a later unit (on object-relational mapping). 
+		Mapping from UML to a relational database model is somewhat similar to mapping from an ERD To a relational model. Like ERD, UML defines classes and relationships. Relations, keys, and attributes can be inferred from the entities/classes and relationships defined by the model.
