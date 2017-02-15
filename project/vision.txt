@@ -1,4 +1,4 @@
-Here are three possible ideas for project visions.
+Here are two possible ideas for project visions.
 
 1. My project will be a database driven two player online game like Chess or Go. It will use a database backend to store user information, game statistics, active games, and moves. The moves logged into the databases can then be used for supervised learning to train an AI player how to play the game.
 
