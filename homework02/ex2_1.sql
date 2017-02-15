@@ -20,9 +20,8 @@ CREATE TABLE Customer_Order (
 CREATE TABLE Order_Item (
 	Order_id NUMBER(5) PRIMARY KEY,
 	Item_id NUMBER(5) PRIMARY KEY,
-	City_id NUMBER(5)
-		-- Ensure the city id matches the corresponding customer - should these really be stored in separate fields?
-		CONSTRAINT check_city_id CHECK(Order_Item.City_id = Customer.City_id WHERE Customer_Order.Order_id = Order_item.Order_id and Customer.Cust_id = Customer_Order.Cust_id)
+	City_id NUMBER(5) NOT NULL
+	-- This City ID can be different than the customer City ID if the order is not being shipped to the customer's home address
 );
 
 CREATE TABLE Item (
