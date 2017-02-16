@@ -1,3 +1,13 @@
+-- If these tables have already been created, drop them.
+DROP TABLE Customer;
+DROP TABLE City;
+DROP TABLE Customer_Order;
+DROP TABLE Order_Item;
+DROP TABLE Item;
+DROP TABLE Shipment;
+DROP TABLE Warehouse;
+
+-- Create tables
 CREATE TABLE Customer (
 	Cust_id	NUMBER(5) PRIMARY KEY,
 	CName VARCHAR2(15) NOT NULL,
@@ -18,8 +28,8 @@ CREATE TABLE Customer_Order (
 );
 
 CREATE TABLE Order_Item (
-	Order_id NUMBER(5) PRIMARY KEY,
-	Item_id NUMBER(5) PRIMARY KEY,
+	Order_id NUMBER(5),
+	Item_id NUMBER(5),
 	City_id NUMBER(5) NOT NULL
 	-- This City ID can be different than the customer City ID if the order is not being shipped to the customer's home address
 );
@@ -30,12 +40,12 @@ CREATE TABLE Item (
 );
 
 CREATE TABLE Shipment (
-	Order_id NUMBER(5) PRIMARY KEY,
-	Warehouse_id NUMBER(5) PRIMARY KEY,
+	Order_id NUMBER(5),
+	Warehouse_id NUMBER(5),
 	Ship_date DATE
 );
 
 CREATE TABLE Warehouse (
-	Warehouse_id NUMBER(5) PRIMARY KEY,
+	Warehouse_id NUMBER(5),
 	City_id NUMBER(5)
 );
