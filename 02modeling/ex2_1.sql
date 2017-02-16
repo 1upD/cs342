@@ -53,6 +53,8 @@ CREATE TABLE Order_Item (
 	Order_id NUMBER(5) NOT NULL, -- Order ID and Item ID cannot be null because they identify the order item
 	Item_id NUMBER(5) NOT NULL,
 	City_id NUMBER(5),
+	CONSTRAINT Order_Item_pk
+		PRIMARY KEY (Order_id, Item_id),
 	CONSTRAINT Order_id_constraint
 		FOREIGN KEY (Order_id)
 		REFERENCES Customer_Order(Order_id)
@@ -80,9 +82,15 @@ CREATE TABLE Shipment (
 	Order_id NUMBER(5) NOT NULL, -- Order ID and Warehouse ID cannot be null because they identify a shipment
 	Warehouse_id NUMBER(5) NOT NULL,
 	Ship_date DATE,
+	CONSTRAINT Shipment_pk
+	PRIMARY KEY (Order_id, Warehouse_id),
 	CONSTRAINT Warehouse_id_constraint
 	FOREIGN KEY (Warehouse_id)
 	REFERENCES Warehouse(Warehouse_id)
+	ON DELETE CASCADE,
+	CONSTRAINT Shipment_Order_id_constraint
+	FOREIGN KEY (Order_id)
+	REFERENCES Customer_Order(Order_id)
 	ON DELETE CASCADE
 );
 
@@ -111,4 +119,3 @@ VALUES (1, 2);
 
 INSERT INTO Shipment
 VALUES (1, 1, DATE '2017-3-20');
-

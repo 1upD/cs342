@@ -11,7 +11,7 @@
 		-- ORA-01400: cannot insert NULL into ("DRD26"."PERFORMER"."ID")
 	
 	-- iii.	a violation of a CHECK constraint
-		INSERT INTO casting VALUES (1, 4, 'none');
+	INSERT INTO casting VALUES (1, 4, 'none');
 		-- Executing this command returns the following error:		
 		-- ORA-02290: check constraint (DRD26.SYS_C007001) violated
 		
