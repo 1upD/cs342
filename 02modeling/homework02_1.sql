@@ -106,7 +106,7 @@ INSERT INTO Customer
 VALUES (2, 'Derek Dik', 1);
 
 INSERT INTO Customer_Order
-VALUES (1, DATE '2017-3-23', 1, 1);
+VALUES (1, DATE '2017-3-23', 2, 1);
 
 INSERT INTO Item
 VALUES (1, 'Mass Effect: Andromeda', 59.99);

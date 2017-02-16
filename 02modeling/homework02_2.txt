@@ -1,0 +1,4 @@
+A possible solution would be to combine multiple attributes of the student such as full nume and birth date together to form the primary key. I would not recommend that for a few reasons. Such a key would be effectively unique because the probability of two students having the same birth date and full name is extremely low, but it is technically not unique - two people could have the same full name and birth date, even if it has never happened. It would also mean that foreign keys would need to store more information than necessary. Finally, as the text pointed out, last names can change. First names can change as well if someone seeks a legal name change.
+
+In this case, surrogate keys are ideal because they are guaranteed to be unique and are guaranteed to never change. Because they are generated they have no implicit meaning that might prevent either of these two constraints from being true.
+
