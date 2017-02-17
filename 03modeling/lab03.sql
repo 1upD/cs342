@@ -9,6 +9,7 @@ drop table Mentorship;
 drop table Role;
 drop table PersonTeam;
 drop table Team;
+drop table Request;
 drop table Person;
 drop table Homegroup;
 drop table HouseHold;
@@ -74,7 +75,20 @@ CREATE TABLE PersonHouseHold (
 	FOREIGN KEY (personID) REFERENCES Person(ID) ON DELETE CASCADE,
 	FOREIGN KEY (houseHoldID) REFERENCES HouseHold(ID) ON DELETE CASCADE,
 	FOREIGN KEY (roleID) REFERENCES Role(ID) ON DELETE CASCADE
-);	
+);
+
+CREATE TABLE Request (
+	requestorID INTEGER,
+	responderID INTEGER,
+	requestDate DATE,
+	text VARCHAR(256),
+	-- TODO Enforce some sort of enumeration on access, possibly using a separate table
+	requestAccess VARCHAR(15),
+	response VARCHAR(256),
+	PRIMARY KEY (requestorID, responderID),
+	FOREIGN KEY (requestorID) REFERENCES Person(ID) ON DELETE SET NULL,
+	FOREIGN KEY (responderID) REFERENCES Person(ID) ON DELETE SET NULL
+);
 
  -- What about married people without children? Roles don't really make sense.
 INSERT INTO Role VALUES (0, 'Parent');
@@ -94,3 +108,5 @@ INSERT INTO PersonTeam VALUES (1, 0, 'Test Role B');
 
 INSERT INTO PersonHouseHold VALUES (0, 0, 0);
 INSERT INTO PersonHouseHold VALUES (1, 0, 0);
+
+INSERT INTO Request VALUES (0, 1, DATE '2017-2-17', 'Test request', 'Private', 'Test response');
