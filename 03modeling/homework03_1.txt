@@ -1,0 +1,3 @@
+1. a. A flight is a relationship between one or more flight legs, which are trips from one airport to another. Leg instances are specific trips alone a flight leg by an airplane on a given day.
+1. b. Weak entities have the dotted underline on their key attributes. Because they are weak entities, they don't need primary keys, so these keys are probably candidate keys but not primary keys.
+1. c. Each leg instance has many reservations, and each reservation is exactly one seat.
