@@ -1,8 +1,13 @@
-	a. Explain the four informal guidelines discussed in Section 15.1.
-		Inference rule: X->Y implied by F on R if for every r in R that satisfies F, X->Y is also true.
+	a. Explain the four informal guidelines discussed in Section 14.1.
+		Communicate schemantics of attributes through schema.
+		Reduce redundant information in tuples.
+		Reduce NULL values in tuples.
+		Prevent generation of spurious tuples.
 		
-	b. Explain the following terms: functional dependency (for Monday, see Section 15.2), multi-valued dependency (for Wednesday, see Section 15.6).
+	b. Explain the following terms: functional dependency (for Monday, see Section 14.2), multi-valued dependency (for Wednesday, see Section 14.6).
+		* A functional dependency describes constraint in which if two tuples in a universal relation share one attribute value, then they must also share another.
 	c. Explain BCNF (for Monday, see Section 15.5) and 4NF (for Wednesday, see Section 15.6) and be able to prove that a schema conforms (or fails to conform) to the definitions of those normal forms.
+		* Whenever a nontrivial functional dependency X->A holds in R, X is a superkey of R.
 	d. Explain why one would one want to
 		i.	normalize relations.
 		ii.	de-normalize relations.
