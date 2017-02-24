@@ -73,3 +73,7 @@ INSERT INTO Person SELECT UNIQUE personID, name, status, mentorID FROM AltPerson
 INSERT INTO Team SELECT UNIQUE teamName, teamTime FROM AltPerson;
 
 -- Create role table
+INSERT INTO Role SELECT UNIQUE personID, teamName, teamRole FROM AltPerson;
+
+-- Display data
+SELECT Person.personID, Person.name, Person.status, Person.mentorID, Team.teamName, Role.teamRole, Team.teamTime FROM Person, Team, Role WHERE Team.teamName = Role.teamName AND Person.personID = Role.personID;
