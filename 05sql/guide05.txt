@@ -19,7 +19,13 @@
 2. Advanced SQL (Sections 7.1.1–7.1.5) — This will include more new material; write sample queries that:
 
 	a. Select based on a NULL field value (Section 7.1.1).
-
+		SELECT * FROM Movie WHERE score IS NULL;
+	
 	b. Implement a nested sub-query, using [NOT] EXISTS, IN, ANY or ALL (Sections 7.1.2–7.1.4).
-
+		SELECT P.firstName, P.lastName
+		FROM Performer AS P
+		WHERE EXISTS (SELECT * FROM Casting AS C WHERE C.performerId = P.id);
+	
 	c. Implement a correlated sub-query (Section 7.1.3).
+		The above query is a correlated sub-query.
+		
