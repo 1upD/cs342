@@ -3,12 +3,17 @@
 	a. Use one or more tuple variables (Section 6.3.2).
 		SELECT P.firstName, P.lastName
 		FROM Performer AS P, Casting AS C, Movie AS M
-		WHERE C.movieID = M.id AND C.performerId = P.id AND Movie.title = 'Star Wars';
+		WHERE C.movieID = M.id AND C.performerId = P.id AND M.title = 'Star Wars';
 	
 	
 	b. Use one or more of the set operations, e.g., UNION, EXCEPT, INTERSECT (Section 6.3.4).
-		
-	
+		(SELECT P.firstName, P.lastName
+		FROM Performer AS P, Casting AS C, Movie AS M
+		WHERE C.movieID = M.id AND C.performerId = P.id AND M.title = 'Star Wars')
+		UNION
+		(SELECT P.firstName, P.lastName
+		FROM Performer AS P, Casting AS C, Movie AS M
+		WHERE C.movieID = M.id AND C.performerId = P.id AND M.score > 3);
 	
 
 2. Advanced SQL (Sections 7.1.1–7.1.5) — This will include more new material; write sample queries that:
