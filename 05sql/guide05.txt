@@ -1,0 +1,20 @@
+1. Basic SQL (Section 6.3) — Review basic SQL as needed, then write sample queries that:
+
+	a. Use one or more tuple variables (Section 6.3.2).
+		SELECT P.firstName, P.lastName
+		FROM Performer AS P, Casting AS C, Movie AS M
+		WHERE C.movieID = M.id AND C.performerId = P.id AND Movie.title = 'Star Wars';
+	
+	
+	b. Use one or more of the set operations, e.g., UNION, EXCEPT, INTERSECT (Section 6.3.4).
+		
+	
+	
+
+2. Advanced SQL (Sections 7.1.1–7.1.5) — This will include more new material; write sample queries that:
+
+	a. Select based on a NULL field value (Section 7.1.1).
+
+	b. Implement a nested sub-query, using [NOT] EXISTS, IN, ANY or ALL (Sections 7.1.2–7.1.4).
+
+	c. Implement a correlated sub-query (Section 7.1.3).
