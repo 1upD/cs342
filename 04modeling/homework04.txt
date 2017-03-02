@@ -7,9 +7,10 @@ Author_name -> Author_affil
 The relation satisfies 1NF because each attribute's values are indivisible.
 The relation does not satisfy BCNF. The functional dependency Author_name -> Author_affil
 is nontrivial and Author_name is not a superkey of BOOK.
+The relation does not satisfy 4NF because it does not satisfy BCNF.
 
 2. a. According to the assumptions about the problem, year is functionally determined by
 book name and edition.
 Therefore a candidate key for the relation is {Book_name, Author, Edition}. The only other
 candidate key is the entire relation, {Book_name, Author, Edition, Copyright_Year}.
-2. b. 
+2. b. Since Book represents the entire relation, Book is a superkey of itself. Therefore Author and {Edition, Year}, fields in the relation, are functionally dependent on the relation.
