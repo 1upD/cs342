@@ -28,6 +28,9 @@ INSERT INTO AltPerson VALUES (1, 'Shamkant', 'm', NULL, NULL, NULL, 'executive',
 INSERT INTO AltPerson VALUES (2, 'Jennifer', 'v', 3, 'Jeff', 'm', 'deacons', 'treasurer', 'Tuesday');
 INSERT INTO AltPerson VALUES (3, 'Jeff', 'm', NULL, NULL, NULL, 'deacons', 'chair', 'Tuesday');
 
+-- Display AltPerson for comparison later
+SELECT * FROM AltPerson;
+
 -- a. Explain, informally, why the relation is not well-designed and then prove your point formally.
 --	The relation is not well designed because information is duplicated across multiple records. The relation
 --	does not satisfy BCNF because mentorName and mentorStatus are functionally dependent on mentorID, which is
@@ -75,5 +78,21 @@ INSERT INTO Team SELECT UNIQUE teamName, teamTime FROM AltPerson;
 -- Create role table
 INSERT INTO Role SELECT UNIQUE personID, teamName, teamRole FROM AltPerson;
 
--- Display data
-SELECT Person.personID, Person.name, Person.status, Person.mentorID, Team.teamName, Role.teamRole, Team.teamTime FROM Person, Team, Role WHERE Team.teamName = Role.teamName AND Person.personID = Role.personID;
+-- Display Person, Team, and Role
+SELECT * FROM Person;
+SELECT * From Team;
+SELECT * FROM Role;
+
+-- Repopulate data into AltPerson
+TRUNCATE TABLE AltPerson;
+INSERT INTO AltPerson
+(SELECT P.personID, P.name, P.status, M.personID, M.name, M.status, T.teamName, R.teamRole, T.teamTime
+FROM Person P, Person M, Team T, Role R 
+WHERE T.teamName = R.teamName AND P.personID = R.personID AND P.mentorId = M.personID)
+UNION
+(SELECT P.personID, P.name, P.status, NULL, NULL, NULL, T.teamName, R.teamRole, T.teamTime
+FROM Person P, Team T, Role R 
+WHERE T.teamName = R.teamName AND P.personID = R.personID AND P.mentorId IS NULL);
+
+-- Display AltPerson
+SELECT * FROM AltPerson;
