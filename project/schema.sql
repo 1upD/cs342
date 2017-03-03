@@ -5,13 +5,14 @@ CREATE TABLE Player(
 
 CREATE TABLE Engine(
 	engineID INTEGER PRIMARY KEY,
-	engineName VARCHAR(32),
+	engineName VARCHAR(64),
 	dateReleased DATE
 );
 
 CREATE TABLE Game(
 	gameID INTEGER PRIMARY KEY,
 	gameName VARCHAR(32),
+	gameURL VARCHAR(64),
 	dateReleased DATE,
 	engineID INTEGER,
 	FOREIGN KEY (engineID) REFERENCES Engine(engineID)
@@ -25,14 +26,15 @@ CREATE TABLE Review(
 	rating INTEGER,
 	reviewComment VARCHAR(512),
 	FOREIGN KEY (playerID) REFERENCES Player(playerID),
-	FOREIGN KEY (gameID) REFERENCES Game(gameID)
+	FOREIGN KEY (gameID) REFERENCES Game(gameID),
+	UNIQUE (playerID, gameID, dateSubmitted)
 );
 
 CREATE TABLE Chapter(
 	chapterName VARCHAR(32),
 	chapterNumber INTEGER,
 	gameID INTEGER,
-	PRIMARY KEY (chapterName, gameID),
+	PRIMARY KEY (chapterNumber, gameID),
 	FOREIGN KEY (gameID) REFERENCES Game(gameID)
 );
 
@@ -63,18 +65,20 @@ CREATE TABLE ReviewChapter(
 
 CREATE TABLE IntroducedElement(
 	reviewID INTEGER,
-	gameplayElementID,
+	chapterNumber INTEGER,
+	gameplayElementID INTEGER,
 	introducedElementComment VARCHAR(256),
-	PRIMARY KEY (reviewID, gameplayElementID),
+	PRIMARY KEY (reviewID, chapterNumber, gameplayElementID),
 	FOREIGN KEY (reviewID) REFERENCES Review(reviewID),
 	FOREIGN KEY (gameplayElementID) REFERENCES GameplayElement(gameplayElementID)
 );
 
 CREATE TABLE TestedElement(
 	reviewID INTEGER,
-	gameplayElementID,
+	chapterNumber INTEGER,
+	gameplayElementID INTEGER,
 	testedElementComment VARCHAR(256),
-	PRIMARY KEY (reviewID, gameplayElementID),
+	PRIMARY KEY (reviewID, chapterNumber, gameplayElementID),
 	FOREIGN KEY (reviewID) REFERENCES Review(reviewID),
 	FOREIGN KEY (gameplayElementID) REFERENCES GameplayElement(gameplayElementID)
 );

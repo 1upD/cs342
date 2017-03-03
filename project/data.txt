@@ -1,0 +1,13 @@
+My test data was hand written to reflect the types of games I am interested in collecting data on using this schema. Dates and URLs were found online by searching Steam for the relevant games. To test the schema with a larger dataset, I could hand write the engine and gameplay category tables and then automtically generate the rest of the data.
+
+Each relation in this schema satisfies BCNF.
+Player(playerID, username) has functional dependency playerID -> username, but playerID is a candidate key (and the primary key) of Player.
+Engine(engineID, engineName, dateReleased) has functional dependency engineName -> dateReleased, but engineName is a candidate key of Engine.
+Game(gameID, gameName, gameURL, dateReleased, engineID) likewise has attributes functionally dependent on its name, which is a candidate key.
+Review(reviewID, playerID, gameID, dateSubmitted, rating, reviewComment) confused me because it is not clear to me if playerID and gameID functionally determine rating and reviewComment.
+That is not the case because a player could submit multiple reviews of the same game with different ratings at different times. It is possible for someone to play a game again, change their mind, and write a second review at a different date. With that in mind, rating and review comment are functionally determined by playerID, gameID, and date submitted, which are a candidate key given a unique constraint.
+Chapter(chapterName, chapterNumber, gameId) has only one functional dependency, (chapterNumber, gameID) -> chapterName. The left side of the dependency is a candidate key and the primary key.
+GameplayCategory has no functional dependencies.
+GameplayElement has one functional dependency, gameplayElementName -> categoryID. The former is a candidate key.
+ReviewChapter(reviewID, chapterNumber, minutesPlayed, datePlayed, rating, chapterComment) is similar to Review. Some fields are functionally dependent on (reviewID, chapterNumber) which is the primary key.
+The same goes for IntroducedElement and TestedElement.
