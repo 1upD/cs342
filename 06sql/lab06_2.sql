@@ -5,13 +5,20 @@
 SELECT AVG(TRUNC(MONTHS_BETWEEN(SYSDATE, Person.birthdate) / 12)) FROM Person;
 
 -- Get the household ID and count of members of all households in Grand Rapids having at least 2 members. Order the results by decreasing size.
-SELECT household.ID AS HouseholdID, COUNT(Person.id) AS PersonCount
-FROM household INNER JOIN Person
-ON Person.householdID = household.ID GROUP BY Person.householdID ORDER BY PersonCount DESC;
+SELECT *
+FROM (SELECT GRHouseholdID, COUNT(Person.id) AS PersonCount
+	FROM (SELECT household.ID AS GRHouseholdID FROM Household WHERE City = 'Grand Rapids') INNER JOIN Person
+	ON Person.householdID = GRhouseholdID 
+	GROUP BY GRhouseholdID 
+	ORDER BY PersonCount DESC) 
+WHERE PersonCount > 1;
 
 -- Modify the previous query to retrieve the phone number of the household as well.
-SELECT household.ID AS HouseholdID, household.PhoneNumber AS PhoneNumber, COUNT(Person.id) AS PersonCount
-FROM household INNER JOIN Person
-ON Person.householdID = household.ID GROUP BY household.ID, household.PhoneNumber
-ORDER BY PersonCount DESC;
+SELECT *
+FROM (SELECT GRHouseholdID, PhoneNumber, COUNT(Person.id) AS PersonCount
+	FROM (SELECT household.ID AS GRHouseholdID, Household.PhoneNumber As PhoneNumber FROM Household WHERE City = 'Grand Rapids') INNER JOIN Person
+	ON Person.householdID = GRhouseholdID 
+	GROUP BY GRhouseholdID, PhoneNumber
+	ORDER BY PersonCount DESC) 
+WHERE PersonCount > 1;
 
