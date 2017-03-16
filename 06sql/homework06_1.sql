@@ -16,5 +16,16 @@ ON E.Department_ID = NonUS_Department_ID
 GROUP BY NonUS_Department_ID, Department_Name;
 
 -- The department name, department manager name and manager job title for all departments. If the department has no manager, include it in the output with NULL values for the manager and title.
+SELECT D.Department_Name AS Department_Name, Manager_First_Name AS First_Name, Manager_Last_Name AS Last_Name, Manager_Job_Title AS Job_Title
+FROM Departments D 
+LEFT OUTER JOIN (SELECT E.Employee_ID As ID, E.First_Name AS Manager_First_Name, E.Last_Name AS Manager_Last_Name, J.Job_Title AS Manager_Job_Title
+FROM Employees E, Jobs J
+WHERE J.Job_ID = E.Job_ID) ON D.Manager_ID = ID;
+
 
 -- The name of each department along with the average salary of the employees of that department. If a department has no employees, include it in the list with no salary value. Order your results by decreasing salary. You may order the NULL-valued salaries however you’d like.
+SELECT D.Department_ID AS Department_ID, D.Department_Name AS Department_Name, AVG(E.Salary) AS Salary
+FROM Departments D, Employees E
+WHERE D.Department_ID = E.Department_ID
+GROUP BY D.Department_ID, D.Department_Name
+ORDER BY Salary DESC;
