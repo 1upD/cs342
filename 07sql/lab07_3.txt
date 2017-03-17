@@ -1,0 +1,5 @@
+Project_FirstName|LastName|Now - Birthdate|Birthdate(SELECT_all)
+Project_FirstName|LastName|Now - Birthdate|Birthdate(SELECT_1961<=Birthdate<1976)
+
+{<FirstName, LastName, Age, Birthdate> | <FirstName, LastName, Age> is_a_subset_of Person ^ Age = Now - Birthdate}
+{<FirstName, LastName, Age, Birthdate> | <FirstName, LastName, Age> is_a_subset_of Person ^ Age = Now - Birthdate ^ 1961 <= Birthdate < 1976}
