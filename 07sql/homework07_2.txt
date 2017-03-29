@@ -1,0 +1,6 @@
+-- The query on which your view from exercise 1 is based - Write this query using both the relational algebra and tuple relational calculus, with respect to the original HR relations.
+
+PI_Employee_ID,First_Name,Last_Name,Email,Hire_Date,Department_Name (E JOIN D E.Department_ID = D.Department_ID)
+
+{ E.Employee_ID, E.First_Name, E.Last_Name, E.Email, E.Hire_Date, D.Department_Name | Employees(E), Departments(D) ^ E.Department_ID = D.Department_ID }
+
