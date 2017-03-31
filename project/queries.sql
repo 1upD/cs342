@@ -12,6 +12,25 @@ FROM Review LEFT OUTER JOIN ReviewChapter
 ON Review.ReviewID = ReviewChapter.ReviewID
 GROUP BY Review.ReviewID;
 
+-- Get all gameplay elements from all reviews for each chapter. 
+-- Used by someone looking for all gameplay elements found in all games and the comments on them.
+SELECT GameID, GameName, GameElementChapterNumber, GameplayElement.gamePlayElementID as GamePlayElementID, GameplayElement.categoryID As GamePlayCategoryID, GamePlayElement.GamePlayElementName as GamePlayElementName, GameElementComment
+FROM
+	(SELECT Game.GameID as GameID, Game.GameName As GameName, GameElementChapterNumber, ChapterGameplayElementID, GameElementComment
+	FROM
+		(SELECT DISTINCT Review.gameID AS GameElementGameID, GameElementChapterNumber, ChapterGameplayElementID, GameElementComment
+		FROM 
+			((SELECT DISTINCT ReviewID AS GameElementReviewID, ChapterNumber AS GameElementChapterNumber, gamePlayElementID As ChapterGameplayElementID, introducedElementComment As GameElementComment
+			FROM IntroducedElement)
+			UNION
+			(SELECT DISTINCT ReviewID AS GameElementReviewID, ChapterNumber AS GameElementChapterNumber, gamePlayElementID As ChapterGameplayElementID, testedElementComment As GameElementComment
+			FROM testedElement))
+		INNER JOIN Review
+		ON GameElementReviewID = Review.ReviewID)
+	INNER JOIN Game
+	ON GameElementGameID = Game.GameID)
+INNER JOIN GameplayElement
+ON ChapterGameplayElementID = GamePlayElement.GamePlayElementID;
 
 -- Create a view that displays each game reviewed, the number of players who have played it, the average rating, total hours played, and average hours played.
 -- This view would be used to display aggregate data about a given game/mod based on all reviews. It would be used by application uses who want to know how much a game has been played and what the average rating of the game is.
