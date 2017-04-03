@@ -1,9 +1,13 @@
 1. a. i.	Compare and contrast B-trees and B+-trees.
 	The difference between a B-tree and a B+-tree is that a B+-tree only stores data pointers in leaf nodes, while a B-tree may store data in internal nodes.
 1. a. ii.	Explain what it means for such a tree to be balanced.
+	All leaf nodes are at the same depth.
 1. a. iii.	Compare and contrast tree and data pointers.
+	Tree pointers point to another node in the tree, while data pointers point to records.
 1. b.		Explain the nature of multiple-attribute indexes (see the introduction to Section 17.4).
+	Multiple attribute indices provide quicker routes to records that could be addressed by a combination of attributes.
 1. c.		Explain the nature of hash and bitmap indexes (see Sections 17.5.1–2).
+	
 1. d. i.	Explain the concept of physical database design (PDD).
 1. d. ii.	Compare and contrast the uses for B-tree, hash and bitmap indexes in PDD.
 1. d. iii.	Explain whether denormalization should be considered a form of PDD.
