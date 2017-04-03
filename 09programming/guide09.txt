@@ -1,0 +1,16 @@
+1. a. i.	Compare and contrast B-trees and B+-trees.
+	The difference between a B-tree and a B+-tree is that a B+-tree only stores data pointers in leaf nodes, while a B-tree may store data in internal nodes.
+1. a. ii.	Explain what it means for such a tree to be balanced.
+1. a. iii.	Compare and contrast tree and data pointers.
+1. b.		Explain the nature of multiple-attribute indexes (see the introduction to Section 17.4).
+1. c.		Explain the nature of hash and bitmap indexes (see Sections 17.5.1–2).
+1. d. i.	Explain the concept of physical database design (PDD).
+1. d. ii.	Compare and contrast the uses for B-tree, hash and bitmap indexes in PDD.
+1. d. iii.	Explain whether denormalization should be considered a form of PDD.
+2. a.		Explain the concept of query optimization (see the introduction to the chapter).
+3. a.		Load the small version of the Internet Movie DB defined in the repo (cs342/databases/imdb), configure the auto-trace facility in SQL*Plus (SET SERVEROUTPUT ON; & SET AUTOTRACE ON;) and generate an execuation plan for some simple query. What is the execution plan operation used and what does that operation do?
+3. b. i.	TABLE ACCESS FULL
+3. b. ii.	TABLE ACCESS BY INDEX
+3. b. iii.	NESTED LOOPS
+3. b. iv.	HASH JOIN
+3. b. v.	INDEX UNIQUE SCAN
