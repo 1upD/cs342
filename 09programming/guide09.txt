@@ -7,8 +7,9 @@
 1. b.		Explain the nature of multiple-attribute indexes (see the introduction to Section 17.4).
 	Multiple attribute indices provide quicker routes to records that could be addressed by a combination of attributes.
 1. c.		Explain the nature of hash and bitmap indexes (see Sections 17.5.1–2).
-	
+	Hash indices use a hash function to store indexes for quicker access. Bitmap indices construct a bit map of columns that have very few attributes that can be used to index a large number of rows.
 1. d. i.	Explain the concept of physical database design (PDD).
+	
 1. d. ii.	Compare and contrast the uses for B-tree, hash and bitmap indexes in PDD.
 1. d. iii.	Explain whether denormalization should be considered a form of PDD.
 2. a.		Explain the concept of query optimization (see the introduction to the chapter).
