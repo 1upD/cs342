@@ -9,9 +9,10 @@
 1. c.		Explain the nature of hash and bitmap indexes (see Sections 17.5.1–2).
 	Hash indices use a hash function to store indexes for quicker access. Bitmap indices construct a bit map of columns that have very few attributes that can be used to index a large number of rows.
 1. d. i.	Explain the concept of physical database design (PDD).
-	
+	The goal of physical database design is to ensure good performance in data storage. It is important not only to structure the data in a usefully organized way but also to insert, update, or delete in the fastest time possible.
 1. d. ii.	Compare and contrast the uses for B-tree, hash and bitmap indexes in PDD.
 1. d. iii.	Explain whether denormalization should be considered a form of PDD.
+	Denormalization takes place at a higher level than PDD. Unless the denormalization is taking place specifically to speed up queries, I would not consider denormalization to be a form of PDD.
 2. a.		Explain the concept of query optimization (see the introduction to the chapter).
 3. a.		Load the small version of the Internet Movie DB defined in the repo (cs342/databases/imdb), configure the auto-trace facility in SQL*Plus (SET SERVEROUTPUT ON; & SET AUTOTRACE ON;) and generate an execuation plan for some simple query. What is the execution plan operation used and what does that operation do?
 3. b. i.	TABLE ACCESS FULL
