@@ -4,6 +4,7 @@ BEGIN
   INSERT INTO Role
   VALUES (actor_ID, movie_ID, role_Name);
 END cast_actor;
+/
 
 -- Do not allow actors to be cast more than once for each movie and do not allow more than 230 castings for any movie.
 CREATE OR REPLACE TRIGGER casting_Restrictions 
@@ -23,6 +24,7 @@ BEGIN
           raise_application_error( -20001, 'This actor is already cast for this movie.'); --to restrict the insetion`.	
 	END IF;
 END;
+/
 
 -- Cast George Clooney (# 89558) as “Danny Ocean” in Oceans Eleven (#238072). N.b., he’s already cast in this movie.
 EXECUTE cast_actor(89558, 238072, 'Danny Ocean');
