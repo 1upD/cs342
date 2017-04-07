@@ -9,20 +9,25 @@ INSERT INTO BaconTable
 VALUES (22591, 0);
 
 DECLARE 
-	actorsRemaining INTEGER := 1;
+	actorsRemaining NUMBER := 1;
+	prevActorsRemaining NUMBER := 0;
 	baconNumber INTEGER := 0;
-BEGIN
-	INSERT INTO BaconTable
-	SELECT B.ActorID, 1 FROM Role A, Role B WHERE B.MovieID = A.MovieID AND A.ActorID = 22591;
-	
+BEGIN	
 	baconNumber := 1;
 
-	
-	WHILE actorsRemaining > 0
+	WHILE actorsRemaining > 0 AND prevActorsRemaining <> actorsRemaining
 	LOOP
-		SELECT COUNT(1) FROM (SELECT * FROM Actor A WHERE NOT EXISTS(SELECT * FROM BaconTable WHERE BaconTable.ActorID = A.ID)) INTO actorsRemaining;
+		INSERT INTO BaconTable
+		SELECT DISTINCT B.ActorID, baconNumber 
+			FROM Role A, Role B 
+			WHERE B.MovieID = A.MovieID 
+			AND EXISTS(
+				SELECT * FROM BaconTable Where BaconTable.ActorID = A.ActorID) 
+			AND NOT EXISTS(
+				SELECT * FROM BaconTable Where BaconTable.ActorID = B.ActorID);
+		prevActorsRemaining := actorsRemaining;
+		SELECT COUNT(1) INTO actorsRemaining FROM (SELECT * FROM Actor A WHERE NOT EXISTS(SELECT * FROM BaconTable WHERE BaconTable.ActorID = A.ID));
 		baconNumber := baconNumber + 1;
-		SELECT B.ActorID, baconNumber FROM Role A, Role B WHERE B.MovieID = A.MovieID AND EXISTS(SELECT * FROM BaconTable Where BaconTable.ActorID = A.ActorID);
 	END LOOP;
 END;
 /
