@@ -5,18 +5,24 @@ CREATE TABLE BaconTable(
 	BaconNumber INTEGER
 );
 
-CREATE OR REPLACE PROCEDURE BaconNumber AS
+INSERT INTO BaconTable
+VALUES (22591, 0);
+
+DECLARE 
+	actorsRemaining INTEGER := 1;
+	baconNumber INTEGER := 0;
 BEGIN
 	INSERT INTO BaconTable
-	VALUES (22591, 0);
-	INSERT INTO BaconTable
 	SELECT B.ActorID, 1 FROM Role A, Role B WHERE B.MovieID = A.MovieID AND A.ActorID = 22591;
-	WHILE EXISTS (SELECT * FROM Actor A WHERE NOT EXISTS(SELECT * FROM BaconTable WHERE BaconTable.ActorID = A.ID) )
+	
+	baconNumber := 1;
+
+	
+	WHILE actorsRemaining > 0
 	LOOP
-		SELECT B.ActorID, 2 FROM Role A, Role B WHERE B.MovieID = A.MovieID AND EXISTS(SELECT * FROM BaconTable Where BaconTable.ActorID = A.ActorID);
+		SELECT COUNT(1) FROM (SELECT * FROM Actor A WHERE NOT EXISTS(SELECT * FROM BaconTable WHERE BaconTable.ActorID = A.ID)) INTO actorsRemaining;
+		baconNumber := baconNumber + 1;
+		SELECT B.ActorID, baconNumber FROM Role A, Role B WHERE B.MovieID = A.MovieID AND EXISTS(SELECT * FROM BaconTable Where BaconTable.ActorID = A.ActorID);
 	END LOOP;
 END;
-/
-
-EXECUTE BaconNumber;
 /
