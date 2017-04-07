@@ -1,13 +1,30 @@
 -- Insert your results into this table.
+DROP TABLE SequelsTemp;
 CREATE TABLE SequelsTemp (
   id INTEGER,
-  name varchar2(100),
-  PRIMARY KEY (id)
+  name varchar2(100)
  );
  
 CREATE OR REPLACE PROCEDURE getSequels (movieIdIn IN Movie.id%type) AS
-	SELECT * FROM Movie
-	INTO SequelsTemp
+	numSequels NUMBER := 0;
+	prevSequels NUMBER := -1;
+BEGIN
+	INSERT INTO SequelsTemp
+	SELECT DISTINCT sequel.id, sequel.name
+	FROM Movie sequel, Movie original
+	WHERE original.id = movieIdIn AND sequel.id = original.sequelID;
+
+	WHILE numSequels <> prevSequels
+	LOOP
+		INSERT INTO SequelsTemp
+		SELECT DISTINCT sequel.id, sequel.name
+		FROM Movie sequel, Movie original, SequelsTemp
+		WHERE original.ID = SequelsTemp.ID AND sequel.id = original.sequelID AND NOT EXISTS (SELECT * FROM SequelsTemp WHERE SequelsTemp.id = sequel.id) ;
+		
+		prevSequels := numSequels;
+		SELECT Count(1) INTO numSequels FROM SequelsTemp;
+		
+	END LOOP;
 	
 END;
 /

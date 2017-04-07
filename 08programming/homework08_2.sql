@@ -11,10 +11,8 @@ VALUES (22591, 0);
 DECLARE 
 	actorsRemaining NUMBER := 1;
 	prevActorsRemaining NUMBER := 0;
-	baconNumber INTEGER := 0;
+	baconNumber INTEGER := 1;
 BEGIN	
-	baconNumber := 1;
-
 	WHILE actorsRemaining > 0 AND prevActorsRemaining <> actorsRemaining
 	LOOP
 		INSERT INTO BaconTable
