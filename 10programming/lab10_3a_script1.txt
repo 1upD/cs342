@@ -1,0 +1,49 @@
+SQL> SELECT * FROM Movie WHERE ID = 238071;
+
+        ID                                                                      
+----------                                                                      
+NAME                                                                            
+--------------------------------------------------------------------------------
+      YEAR       RANK   SEQUELID                                                
+---------- ---------- ----------                                                
+    238071                                                                      
+Ocean's 11                                                                      
+      1960        8.5     238072                                                
+                                                                                
+
+SQL> SET AUTOCOMMIT OFF;
+SQL> UPDATE Movie SET Rank = 8.6 WHERE ID = 238071;
+
+1 row updated.
+
+SQL> SELECT * FROM Movie WHERE ID = 238071;
+
+        ID                                                                      
+----------                                                                      
+NAME                                                                            
+--------------------------------------------------------------------------------
+      YEAR       RANK   SEQUELID                                                
+---------- ---------- ----------                                                
+    238071                                                                      
+Ocean's 11                                                                      
+      1960        8.6     238072                                                
+                                                                                
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> SELECT * FROM Movie WHERE ID = 238071;
+
+        ID                                                                      
+----------                                                                      
+NAME                                                                            
+--------------------------------------------------------------------------------
+      YEAR       RANK   SEQUELID                                                
+---------- ---------- ----------                                                
+    238071                                                                      
+Ocean's 11                                                                      
+      1960        8.3     238072                                                
+                                                                                
+
+SQL> SPOOL OFF
