@@ -1,0 +1,7 @@
+Because of the commit command, I expect there will be no conflicts between the two windows.
+
+Before starting exercise 10.1, I did not understand at all how transactions and commits worked. Now that I have tested it out, I understand much better.
+
+Each window acts as a separate transaction. Modifications to the database in one window do not effect the other until the former session is terminated and the latter session is restarted, OR until the Commit command is used to submit the transaction.
+
+Using rollbacks and commits can implement ACID properties by terminating incomplete transactions. If the transaction is either completed or never started, then it is atomic.
