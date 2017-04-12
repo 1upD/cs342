@@ -26,11 +26,17 @@
 
 1.e.	schedule
 
+	A schedule is an ordering of operations between multiple transactions.
+
 2.		Chapter 21 introduction and Section 21.1 — Explain the following.
 
 2.a.	lock
 
+	Protocol to prevent multiple transactions from accessing a data item.
+
 2.b.	two-phase locking
+
+	
 
 3. Review Oracle’s Overview of Transaction Processing in PL/SQL (only; you can skip the other sections on this page) — Compare and contrast the following.
 
