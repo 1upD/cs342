@@ -1,0 +1,79 @@
+SQL> SELECT * FROM Movie WHERE ID = 238071;
+
+        ID                                                                      
+----------                                                                      
+NAME                                                                            
+--------------------------------------------------------------------------------
+      YEAR       RANK   SEQUELID                                                
+---------- ---------- ----------                                                
+    238071                                                                      
+Ocean's 11                                                                      
+      1960        8.3     238072                                                
+                                                                                
+
+SQL> SELECT * FROM Movie WHERE ID = 238071;
+
+        ID                                                                      
+----------                                                                      
+NAME                                                                            
+--------------------------------------------------------------------------------
+      YEAR       RANK   SEQUELID                                                
+---------- ---------- ----------                                                
+    238071                                                                      
+Ocean's 11                                                                      
+      1960          1     238072                                                
+                                                                                
+
+SQL> EXECUTE incrementRank(238071, 0.00001);
+
+PL/SQL procedure successfully completed.
+
+SQL> SELECT * FROM Movie WHERE ID = 238071;
+
+        ID                                                                      
+----------                                                                      
+NAME                                                                            
+--------------------------------------------------------------------------------
+      YEAR       RANK   SEQUELID                                                
+---------- ---------- ----------                                                
+    238071                                                                      
+Ocean's 11                                                                      
+      1960          1     238072                                                
+                                                                                
+
+SQL>  EXECUTE incrementRank(238071, 0.0001);
+
+PL/SQL procedure successfully completed.
+
+SQL>  SELECT * FROM Movie WHERE ID = 238071;
+
+        ID                                                                      
+----------                                                                      
+NAME                                                                            
+--------------------------------------------------------------------------------
+      YEAR       RANK   SEQUELID                                                
+---------- ---------- ----------                                                
+    238071                                                                      
+Ocean's 11                                                                      
+      1960          1     238072                                                
+                                                                                
+
+SQL> 
+SQL> EXECUTE incrementRank(238071, 0.01);
+
+PL/SQL procedure successfully completed.
+
+SQL> SELECT * FROM Movie WHERE ID = 238071;
+
+        ID                                                                      
+----------                                                                      
+NAME                                                                            
+--------------------------------------------------------------------------------
+      YEAR       RANK   SEQUELID                                                
+---------- ---------- ----------                                                
+    238071                                                                      
+Ocean's 11                                                                      
+      1960     623.41     238072                                                
+                                                                                
+
+SQL> SPOOL OFF;

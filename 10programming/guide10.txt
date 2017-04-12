@@ -1,0 +1,39 @@
+1.		Sections 20.1-20.4.1 & 20.6 — Explain the following.
+1.a.	interleaving vs. parallelism
+
+	Interleaving schedules computations on a CPU while others are waiting, while parallelism truly runs multiple computations simultaneously.
+
+1.b.	the lost update, dirty read and incorrect summary problems
+
+	Lost Update: Two interleaved update operations interfere with one another, leaving only the result of the second update and 'losing' the result of the first update.
+	
+	Dirty Read: An update fails, but before the update is rolled back its value is read by another operation.
+	
+	Incorrect Summary: An aggregate function returns the incorrect result because other threads are updating the values.
+	
+1.c.	transactions, including commits and rollbacks
+
+	Transactions: Atomic units of work to be rolled back unless completed.
+	
+	Upon completion of a transaction, the changes are committed to the database. Otherwise, if something goes wrong, the changes are rolled back.
+
+1.d.	the ACID properties
+	
+	Atomic
+	Consistency
+	Isolation
+	Durability
+
+1.e.	schedule
+
+2.		Chapter 21 introduction and Section 21.1 — Explain the following.
+
+2.a.	lock
+
+2.b.	two-phase locking
+
+3. Review Oracle’s Overview of Transaction Processing in PL/SQL (only; you can skip the other sections on this page) — Compare and contrast the following.
+
+3.a.	SAVEPOINT, COMMIT vs ROLLBACK [TO]
+
+3.b.	LOCK TABLE vs. FOR UPDATE
