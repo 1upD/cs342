@@ -1,0 +1,15 @@
+1.a.	Explain the tiers discussed in the article. On which does J2EE focus? On which to the Oracle database focus?
+	Client		-	Applications that access a Java EE server and are located on a different machine from the server.
+	Web			-	Components that handle the interaction between clients and the business tier.
+	Business	-	Components that provide business logic for application.
+	Enterprise	-	Database servers, enterprise resource planning, data sources like mainframes. Typically located on a separate machine.
+
+1.b.	Explain the nature of a J2EE container. What sort of containers are there?
+	Containers interface between EE components and low level platforms. Web containers interface between web components and the web server. EJB containers interface between business tier logic and the Java EE server. Application Client containers interface between Java EE clients and the Java EE server.
+
+2.a.	Sections 1.7–1.8, “Java EE 7 APIs” — Explain the purpose of these technologies (only): JPA, JTA, JAX-RS*, JDBC, JAXB.
+2.b.	Section 5, “Packaging Applications” — Compare and contrast JARs, WARs & EARs.
+
+3.a.	Identify the IDE we’ll use for J2EE development.
+3.b.	Identify the roles of the following technologies in the J2EE application: J2SE’s JDK; GlassFish.
+3.c.	Explain the nature of a RESTful webservice.*
