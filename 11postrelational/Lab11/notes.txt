@@ -1,0 +1,15 @@
+11.1.c. How do the external libraries (in the project pane) relate to J2SE and J2EE?
+	The external libraries are the JDK (1.8) and Glassfish. J2EE is implemented through Glassfish; the JDK is essentially J2SE.
+	
+11.1.d. Developing source code — Set the HTML title and body content to whatever you’d like. At what tier does this application run?
+	This application runs at the web tier. It hosts and deploys to a server that can be connected to over the web. (or in this case, over the local network)
+	
+11.1.e. What server does this step use to serve up your application? For a hint, look at what’s served up at the URL: /. How does it compare with a typical web server?
+	The server is GlassFlish server. At the / route, it servers up a page that shows the server is running and advertises glassfish. With a normal web server, I would expect this page to be specific to the application.
+	
+11.1.f. Skim through these sections, making sure that you can find the application features they discuss. What is a WAR file?
+	WAR stands for Web Application Archive. WAR files are similar to JAR files except that they can be deployed onto a web server.
+	
+11.1.g. Exploded WAR files are uncompressed while non-exploded WAR files are compressed.
+
+11.1.h. EAR files package together multiple artifacts, including WAR files.
