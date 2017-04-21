@@ -1,0 +1,4 @@
+DIRECTORY=exp_dir
+DUMPFILE=lddb.dmp 
+LOGFILE=lddb.log
+TABLES=lddbUser.Player, lddbUser.Engine, lddbUser.Game, lddbUser.Review, lddbUser.Chapter, lddbUser.GameplayCategory, lddbUser.GameplayElement, lddbUser.ReviewChapter, lddbUser.IntroducedElement, lddbUser.TestedElement

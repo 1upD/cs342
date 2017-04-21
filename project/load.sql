@@ -6,3 +6,9 @@
 
 -- Load sample data.
 @data.sql
+
+-- Load procedures
+@procedures.sql
+
+-- Load triggers
+@triggers.sql
