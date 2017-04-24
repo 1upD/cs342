@@ -1,0 +1,34 @@
+1.a.i. Persistence in Java and how it relates to the impedance mismatch discussed in unit 8
+	Persistant data is data that outlives the process that created it. The Java Persistence API is an API spec that defines operations to manage relational data in Java applications.
+1.a.ii. POJOs
+1.b. Chapter 4, “Persistence Products, Which to Use?” — Name 2–3 of the major JPA implementations and indicate which one we are using in this class.
+1.c. Chapter 5, “Mapping, Round Pegs into Square Holes” — Annotate this Java class for object-relational mapping using Java Annotations with the property access type.
+
+public class Solder {
+    private String name;
+    private String rank;
+    private long serialNumber;
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public String getRank() { return rank; }
+    public void setRank(String rank) { this.rank = rank; }
+
+    public String getSerialNumber() { return serialNumber; }
+    public void setSerialNumber(String serialNumber) { this.serialNumber = serialNumber; }
+}
+
+In particular, add annotations for the following.
+
+- Persistence Entity — Annotate the class as a persistence entity (Chapter 5 overview).
+- OID — Annotate the object ID (Section 5.2).
+- Basic fields — Annotate the non-ID fields (Section 5.6).
+- Relationships — Add new fields/accessors/annotations that exemplify the following JPA relationships (Section 5.7 overview & Sections 5.7.2–5.7.4).
+	- A many-to-one relationship to a commander — The commander is another Solder object.
+	- A many-to-many relationship to a Battle class — You don’t need to add the Battle class.
+	
+1.d. Chapter 6, “Runtime, Doing the Hokey Pokey (EntityManager)”
+1.d.i. Entity Manager (Chapter 6 overview)
+1.d.ii. Injection — We’ll use J2EE dependency injection to access to a container-managed EntityManager (Chapter 6 overview).
+1.d.iii. Persistence operations — Name the four basic persistence operations (Section 6.2).
