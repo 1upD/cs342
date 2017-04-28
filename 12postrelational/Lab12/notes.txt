@@ -3,3 +3,11 @@
 12.2. IntelliJ maps database tables onto Java entity classes by creating a class for each table for which an instance of that class represents a row in the table. Each attribute is represented by a private variable with automatically generated accessors.
 
 PersonTeamPK models the primary keys of the PersonTeam relation.
+
+12.3. Marshalling is performed when the Person records are queried from the database. They are marshalled into Person Java objects.
+
+Injection is not used. Queries to the database are handled by the ORM which is accessed through an object oriented context.
+
+The entity manager provides access to the ORM and marshalling.
+
+12.4. The JPA retrieves household and team entities by executing a join query with the conditions specified in the annotation.

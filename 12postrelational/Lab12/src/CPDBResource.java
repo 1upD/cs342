@@ -1,3 +1,15 @@
+import models.Person;
+
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import java.util.List;
+
 /**
  * This stateless session bean serves as a RESTful resource handler for the CPDB.
  * It uses a container-managed entity manager.
