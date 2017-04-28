@@ -1,0 +1,5 @@
+12.1 The connection made through intelliJ connected the IDE to the database. The GlassFish connection connects the application server to the database. The former may be required for the Persistence API, while the latter will be necessary for the application to access the database. Both are needed in this case.
+
+12.2. IntelliJ maps database tables onto Java entity classes by creating a class for each table for which an instance of that class represents a row in the table. Each attribute is represented by a private variable with automatically generated accessors.
+
+PersonTeamPK models the primary keys of the PersonTeam relation.
