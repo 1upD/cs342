@@ -1,0 +1,17 @@
+13. 1.
+
+em.persist() has to work around the impedence mismatch, while store.put() does not. It is much more transparent that store.put() is essentially adding an entry to a dictionary (a key-value store, in this case) with a given key and value. em.persist() is translating an object into a relation and storing that relation in a database. The operation of em.persist() must be translated into a query through the ORM.
+
+The difference between store.put() and myHashTable.put() is that the latter is executing a method on a data structure in memory, while the former is a message to a remote server. The KVLite library must connect to and communicate with the KVLite instance running on this machine to exceute the put.
+
+13.2
+
+KVLite keys are a Key object. It seems as though they are always based on strings. They are separate from the value of a key-value relation.
+
+Primary keys in a relational database are much different. They can be any unique attributes of a relation and can be strongly typed. Relational keys may also consist of more than one attribute, while a KVStore key is always one string.
+
+13.3
+
+Foreign keys may still be stored as attributes of a key path. Separate gets can be used to find the object corresponding to a foreign key relation.
+
+An empty value might be similar to a NULL value in a relational database.
