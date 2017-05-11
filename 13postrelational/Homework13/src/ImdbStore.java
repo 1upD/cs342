@@ -23,7 +23,7 @@ public class ImdbStore {
 
         // Populate the movie table
         Statement movieStatement = jdbcConnection.createStatement();
-        ResultSet resultSet = movieStatement.executeQuery("SELECT id, name, year, rank FROM Movie");
+        ResultSet resultSet = movieStatement.executeQuery("SELECT id, name, year, rank FROM Movie ORDER BY YEAR DESC");
         while (resultSet.next()) {
             Key key = Key.createKey(Arrays.asList("movie", resultSet.getString(1)), Arrays.asList("name"));
             Value value = Value.createValue(resultSet.getString(2).getBytes());
@@ -31,6 +31,14 @@ public class ImdbStore {
 
             key = Key.createKey(Arrays.asList("movie", resultSet.getString(1)), Arrays.asList("year"));
             value = Value.createValue(resultSet.getString(3).getBytes());
+            store.put(key, value);
+
+            key = Key.createKey(Arrays.asList("year"), Arrays.asList(resultSet.getString(3), "movieID"));
+            value = Value.createValue(resultSet.getString(1).getBytes());
+            store.put(key, value);
+
+            key = Key.createKey(Arrays.asList("year"), Arrays.asList(resultSet.getString(3), "name"));
+            value = Value.createValue(resultSet.getString(2).getBytes());
             store.put(key, value);
 
             // For some reason rank doesn't work
@@ -52,9 +60,6 @@ public class ImdbStore {
                 value = Value.createValue(resultSet.getString(3).getBytes());
                 store.put(key, value);
             }
-
-         // Clear the role table
-
 
         // Populate the role table
             Statement roleStatement = jdbcConnection.createStatement();
@@ -186,6 +191,31 @@ public class ImdbStore {
             String fieldName = field.getKey().getMinorPath().get(0);
             String fieldValue = new String(field.getValue().getValue().getValue());
             System.out.println("\t" + fieldName + "\t: " + fieldValue);
+        }
+    }
+
+    public static void GetSortedMovies(){
+        // Initialize KVStore to store values
+        KVStore store = KVStoreFactory.getStore(new KVStoreConfig("kvstore", "localhost:5000"));
+
+        // Using hard coded values to demonstrate multiget
+        // TODO Read all ID values
+
+        System.out.println("Movies sorted by year");
+        Key key = Key.createKey(Arrays.asList("year"));
+        Map<Key, ValueVersion> fields = store.multiGet(key, null, null);
+        int i = 0;
+        for (Map.Entry<Key, ValueVersion> field : fields.entrySet()) {
+            if(i % 2 == 0){
+                String fieldName = field.getKey().getMinorPath().get(0);
+                String fieldValue = new String(field.getValue().getValue().getValue());
+                System.out.print("\t" + fieldName + "\t: " + fieldValue);
+            } else {
+                String fieldValue = new String(field.getValue().getValue().getValue());
+                System.out.print("\t" + fieldValue + "\n");
+            }
+            i++;
+
         }
     }
 
