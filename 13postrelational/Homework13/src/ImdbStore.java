@@ -12,6 +12,17 @@ public class ImdbStore {
         GetMovieActors();
     }
 
+    /**
+     * Loads data from IMDB into KVStore.
+     *
+     * There are four major keys provided.
+     *
+     * movie/$movieid Each individual movie record with fields for name, year, and rank
+     * actor/$actorid Each individual actor record
+     * role/%movieid Each role identified by a movie id. Minor key begins with actorID and then "role" with a value of the role string.
+     * year/ Major key which stores a list of all movie IDs and names sorted by year
+     *
+     */
     public static void LoadDB(){
         // Initialize KVStore to store values
         KVStore store = KVStoreFactory.getStore(new KVStoreConfig("kvstore", "localhost:5000"));
@@ -197,9 +208,6 @@ public class ImdbStore {
     public static void GetSortedMovies(){
         // Initialize KVStore to store values
         KVStore store = KVStoreFactory.getStore(new KVStoreConfig("kvstore", "localhost:5000"));
-
-        // Using hard coded values to demonstrate multiget
-        // TODO Read all ID values
 
         System.out.println("Movies sorted by year");
         Key key = Key.createKey(Arrays.asList("year"));

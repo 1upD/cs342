@@ -1,0 +1,11 @@
+What type of noSQL database system is Oracle’s NoSQL product, KVLite?
+	KVLite is a key-value store as opposed to a Document store or another kind of NoSQL database. (It's right in the name)
+
+The Internet Movie DataBase (imdb.com) is currently implemented in mySQL. If you were required to port it to a noSQL system, which of the noSQL system types would you suggest? Explain your answer.
+	A key-value store does not seem like an efficient way to implement a database like IMDB because it stores a large amount of data of varying types. A document store would be more appropriate because each movie record could be a document with all of the appropriate data associated with that document. Ultimately, in order to relate actors and roles to movies the best way to implement IMDB would be through a relational database.
+
+Could you (efficiently) reuse the same key-value structure for exercise 13.1.d (above) and its “opposite”, i.e., get the movies in which a given actor is cast? Why or why not?
+	The current key structure does not support looking up movies by actor because movieID is part of the major key of the Role structure. A new key structure would need to be added.
+
+NoSQL databases are often referred to as schema-less or schema-free. Explain what this means using examples from your homework solution.
+	The schema is enforced by the client and the database itself has no schema. KVLite stores each record as pair of key and value strings. Each individual "program" implemented in the homework reads data from the key value store and enforces its own rules on the result, assuming that the data was stored following the appropriate conventions.
