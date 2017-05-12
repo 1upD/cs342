@@ -1,11 +1,11 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="Lab12:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/Lab12_war_exploded</output-path>
+  <artifact type="exploded-war" name="j2ee:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/j2ee_war_exploded</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="extensions/web/Web" />
+      <element id="javaee-facet-resources" facet="j2ee/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="extensions" />
+          <element id="module-output" name="j2ee" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="javax.persistence" />

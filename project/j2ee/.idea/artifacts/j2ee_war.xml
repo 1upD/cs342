@@ -1,8 +1,8 @@
 <component name="ArtifactManager">
-  <artifact type="war" build-on-make="true" name="extensions:war">
-    <output-path>$PROJECT_DIR$/out/artifacts/extensions_war</output-path>
-    <root id="archive" name="extensions_war.war">
-      <element id="artifact" artifact-name="Lab12:war exploded" />
+  <artifact type="war" build-on-make="true" name="j2ee:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/j2ee_war</output-path>
+    <root id="archive" name="j2ee_war.war">
+      <element id="artifact" artifact-name="j2ee:war exploded" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="lib">
           <element id="library" level="project" name="javax.persistence" />
