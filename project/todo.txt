@@ -1,0 +1,15 @@
+* Modify ERD to more appropriately model weak entitiy relationships
+* Add domain constraints including positive ratings and scores
+* Justify why the schema is 4NF
+* Add additional data
+* In queries.sql, add a query that makes use of a self join
+* In queries.sql, add a query that makes use of a NULL value
+* Add upgrades for transactions such as locking - see lab notes
+* Add dump script and output file for datapump
+* Add a 1-M/M-1 relationship to the J2EE RESTful web service
+* Add a M-M relationship to the J2EE RESTful web service
+* Add an explanation of the use of J2EE/Rest
+* Add a 2-table join query to the noSQL implementation
+* Add an ordered information query to the noSQL implementation
+* Add an explanation of the use of noSQL
+* Add documentation to each file. Additionally, document the RESTful web service and the noSQL implementation
