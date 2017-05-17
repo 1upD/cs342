@@ -1,0 +1,17 @@
+1. Read Section 30.1:
+	a. Name and explain the for kinds of control measures required for database security.
+
+	b. Compare and contrast information security and information privacy.
+
+2. Read Imperva’s Top 5 Database Security Threats.
+	a. Name and explain the security threats discussed in the article.
+		1. Excessive, inappropriate, and unused privileges
+			Any database privilege that isn't strictly required by a job should not be granted to prevent abuse of data.
+		2. Privilege abuse
+			Users with legitimate database privileges such as system administrators can easily take advantage of those privileges for unauthorized purposes. For this reason, system administrators should not access data directly.
+		3. Insufficient web application security
+			Data may be exposed through web applications. SQL Injection is one example of an attack that takes advantage of a web application.
+		4. Weak audit trails
+			Failure to monitor abnormalities and collect information about database activity represents an organizational risk.
+		5. Unsecured storage media
+			Backup copies are particularly vulnerable to theft.
