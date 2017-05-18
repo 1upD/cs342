@@ -1,7 +1,6 @@
 * Modify ERD to more appropriately model weak entitiy relationships
-* Add domain constraints including positive ratings and scores
-* Justify why the schema is 4NF
 * Add additional data
+	* Write script
 * In queries.sql, add a query that makes use of a self join
 * In queries.sql, add a query that makes use of a NULL value
 * Add upgrades for transactions such as locking - see lab notes

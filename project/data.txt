@@ -11,3 +11,11 @@ GameplayCategory has no functional dependencies.
 GameplayElement has one functional dependency, gameplayElementName -> categoryID. The former is a candidate key.
 ReviewChapter(reviewID, chapterNumber, minutesPlayed, datePlayed, rating, chapterComment) is similar to Review. Some fields are functionally dependent on (reviewID, chapterNumber) which is the primary key.
 The same goes for IntroducedElement and TestedElement.
+
+Additionally, each relation satisfies 4NF.
+Player does not have any multivalue dependencies.
+Engine does not have any multivalue dependencies.
+Game does not have any multivalue dependencies.
+Review does not have any multivalue dependencies.
+Chapter may be considered to have multivalue dependency gameID => chapterNumber, however I would discount this dependency because not every game has the same number of chapter numbers.
+Likewise, ReviewChapter may be considered to have multivalue dependency reviewID => chapterNumber because for each review, one ReviewChapter record should exist for each Chapter record. I would discount this dependency because for incomplete reviews, not every review will have ever chapter number. Additionally, the chapter numbers are different per review based on which game is being reviewed.
