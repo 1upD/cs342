@@ -1,0 +1,36 @@
+;;; 
+Export: Release 11.2.0.2.0 - Production on Thu May 18 16:55:24 2017
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+;;; 
+Connected to: Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production
+Starting "LDDBUSER"."SYS_EXPORT_SCHEMA_01":  lddbUser/******** DIRECTORY=exp_dir dumpfile=lddb.dmp 
+Estimate in progress using BLOCKS method...
+Processing object type SCHEMA_EXPORT/TABLE/TABLE_DATA
+Total estimation using BLOCKS method: 640 KB
+Processing object type SCHEMA_EXPORT/PRE_SCHEMA/PROCACT_SCHEMA
+Processing object type SCHEMA_EXPORT/SEQUENCE/SEQUENCE
+Processing object type SCHEMA_EXPORT/TABLE/TABLE
+Processing object type SCHEMA_EXPORT/TABLE/INDEX/INDEX
+Processing object type SCHEMA_EXPORT/TABLE/CONSTRAINT/CONSTRAINT
+Processing object type SCHEMA_EXPORT/TABLE/INDEX/STATISTICS/INDEX_STATISTICS
+Processing object type SCHEMA_EXPORT/TABLE/COMMENT
+Processing object type SCHEMA_EXPORT/PROCEDURE/PROCEDURE
+Processing object type SCHEMA_EXPORT/PROCEDURE/ALTER_PROCEDURE
+Processing object type SCHEMA_EXPORT/TABLE/CONSTRAINT/REF_CONSTRAINT
+Processing object type SCHEMA_EXPORT/TABLE/TRIGGER
+. . exported "LDDBUSER"."CHAPTER"                        6.078 KB      10 rows
+. . exported "LDDBUSER"."ENGINE"                         5.929 KB       2 rows
+. . exported "LDDBUSER"."GAME"                           7.281 KB       3 rows
+. . exported "LDDBUSER"."GAMEPLAYCATEGORY"               5.539 KB       5 rows
+. . exported "LDDBUSER"."GAMEPLAYELEMENT"                5.921 KB       3 rows
+. . exported "LDDBUSER"."INTRODUCEDELEMENT"              6.328 KB       3 rows
+. . exported "LDDBUSER"."PLAYER"                         5.437 KB       1 rows
+. . exported "LDDBUSER"."REVIEW"                         7.156 KB       1 rows
+. . exported "LDDBUSER"."REVIEWCHAPTER"                  7.171 KB       1 rows
+. . exported "LDDBUSER"."TESTEDELEMENT"                  6.304 KB       2 rows
+Master table "LDDBUSER"."SYS_EXPORT_SCHEMA_01" successfully loaded/unloaded
+******************************************************************************
+Dump file set for LDDBUSER.SYS_EXPORT_SCHEMA_01 is:
+  C:\USERS\DRD26\DOCUMENTS\PROJECT\LDDB.DMP
+Job "LDDBUSER"."SYS_EXPORT_SCHEMA_01" successfully completed at 16:55:38
