@@ -1,7 +1,14 @@
 1. Read Section 30.1:
-	a. Name and explain the for kinds of control measures required for database security.
+	a. Name and explain the four kinds of control measures required for database security.
+		Access Control - Creating user accounts and passwords to control logins to the DBMS
+		Inference Control - Ensures data about individuals cannot be deduced from aggregate data.
+		Flow Control - Prevent information from flowing to unauthorized users
+		Data Encryption - Encrypt vital data that is communicated over a network
+		
 
 	b. Compare and contrast information security and information privacy.
+		Securty - How well can a system protect access to information it contains
+		Privacy - How well does the use of personal information conform to implicit assumptions about that use.
 
 2. Read Imperva’s Top 5 Database Security Threats.
 	a. Name and explain the security threats discussed in the article.
