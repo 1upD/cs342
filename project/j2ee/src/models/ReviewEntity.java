@@ -2,6 +2,7 @@ package models;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.util.List;
 
 /**
  * Created by drd26 on 5/11/2017.
@@ -13,6 +14,8 @@ public class ReviewEntity {
     private Time datesubmitted;
     private Long rating;
     private String reviewcomment;
+    private List<ReviewchapterEntity> chapterReviews;
+    private PlayerEntity player;
 
     @Id
     @Column(name = "REVIEWID")
@@ -53,6 +56,21 @@ public class ReviewEntity {
     public void setReviewcomment(String reviewcomment) {
         this.reviewcomment = reviewcomment;
     }
+
+    // Many to one relationship
+    @ManyToOne
+    @JoinColumn(name = "PLAYERID", referencedColumnName = "PLAYERID")
+    public PlayerEntity getPlayer() {return player; }
+
+    public void setPlayer(PlayerEntity player){this.player = player;}
+
+    // Many to many relationship
+    @ManyToMany
+    @JoinTable(name = "ReviewChapter", schema = "LDDBUSER",
+            joinColumns = @JoinColumn(name = "reviewID", referencedColumnName = "reviewID", nullable = false))
+    public List<ReviewchapterEntity> getChapterReviews() { return chapterReviews; }
+
+    public void setChapterReviews(List<ReviewchapterEntity> chapterReviews){ this.chapterReviews = chapterReviews;}
 
     @Override
     public boolean equals(Object o) {

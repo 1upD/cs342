@@ -13,7 +13,25 @@ import java.util.List;
  * This code was adapted from Lab12 to work with the LDDB for my databases project.
  * It provides several URL paths to the database which return records in JSON format.
  *
+ * The following routes are provided by the web service:
+ * player/$id
+ * players
+ * review/$id
+ * reviews
+ * game/$id
+ * games
+ *
+ * The web service provides access to the Player, Review, and Games tables and returns the requested records
+ * (either individually or the entire table) as model objects. The ReviewEntity model class has a one to many relationship
+ * with Player (each ReviewEntity object has a player object) and a many to many relationship with ReviewChapter
+ * (each ReviewEntity object has a list of ReviewchapterEntity objects)
+ *
  * Unfortunately, I can't seem to get Glassfish server to deploy the project.
+ *
+ * @author kvlinden
+ * @authord drd26
+ * @version Spring, 2017
+ *
  */
 @Stateless
 @Path("cpdb")

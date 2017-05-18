@@ -11,6 +11,8 @@ DROP DIRECTORY exp_dir;
 CREATE DIRECTORY exp_dir AS 'C:\Users\drd26\Documents\project';
 GRANT READ, WRITE ON DIRECTORY exp_dir to lddbUser;
 
+-- Log in as the new user
+CONNECT lddbUser/bjarne;
 
 -- Load the database.
 @load.sql

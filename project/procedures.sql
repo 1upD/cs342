@@ -12,6 +12,8 @@ CREATE OR REPLACE PROCEDURE startReview(reviewedGameID IN INTEGER, userID IN INT
 	
 		openReviews INTEGER;
 	BEGIN
+		SAVEPOINT startReview_savepoint;
+	
 		LOCK TABLE Review IN EXCLUSIVE MODE;
 		SELECT COUNT(Review.reviewID) INTO openReviews FROM Review WHERE Review.gameID = reviewedGameID AND Review.playerID = userID AND Review.dateSubmitted IS NULL AND Review.Rating IS NULL;
 		
@@ -22,7 +24,7 @@ CREATE OR REPLACE PROCEDURE startReview(reviewedGameID IN INTEGER, userID IN INT
 		INSERT INTO Review(reviewID, playerID, gameID) VALUES(review_ID_sequence.nextval, userID, reviewedGameID);
 		COMMIT;
 	EXCEPTION
-		WHEN OTHERS THEN ROLLBACK;
+		WHEN OTHERS THEN ROLLBACK TO startReview_savepoint;
 	END;
 	/
 
@@ -37,6 +39,8 @@ IS
 	reviewIDExecption EXCEPTION;
 	thisReviewID INTEGER;
 	BEGIN
+		SAVEPOINT submitChapterReview;
+	
 		-- If the review does not already exist, create it
 		startReview(reviewedGameID, userID);
 	
@@ -55,7 +59,7 @@ IS
 		
 		COMMIT;
 	EXCEPTION
-		WHEN OTHERS THEN ROLLBACK;
+		WHEN OTHERS THEN ROLLBACK TO submitChapterReview;
 	END;
 	/
 
@@ -69,6 +73,9 @@ IS
 	
 	thisReviewID INTEGER;
 BEGIN
+	
+	SAVEPOINT submitGameReview;
+
 	-- If the review does not already exist, create it
 	startReview(reviewedGameID, userID);
 
@@ -92,8 +99,8 @@ BEGIN
 		
 	COMMIT;
 EXCEPTION
-	WHEN invalidRatingException THEN ROLLBACK;
-	WHEN reviewIDExecption THEN ROLLBACK;
-	WHEN OTHERS THEN ROLLBACK;
+	WHEN invalidRatingException THEN ROLLBACK TO submitGameReview;
+	WHEN reviewIDExecption THEN ROLLBACK TO submitGameReview;
+	WHEN OTHERS THEN ROLLBACK TO submitGameReview;
 END;
 /

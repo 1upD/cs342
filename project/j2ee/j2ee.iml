@@ -8,6 +8,7 @@
         <datasource-mapping>
           <factory-entry name="NewPersistenceUnit" value="dbbdebcc-a957-47e2-870a-895e201c7ad4" />
           <factory-entry name="cpdbEntities" value="dbbdebcc-a957-47e2-870a-895e201c7ad4" />
+          <factory-entry name="lddbEntities" />
           <factory-entry name="noname-a.xml@0" value="dbbdebcc-a957-47e2-870a-895e201c7ad4" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/META-INF/persistence.xml" />
@@ -36,6 +37,7 @@
     <orderEntry type="library" scope="PROVIDED" name="GlassFish 4.1.0 - RESTful Web Service" level="application_server_libraries" />
     <orderEntry type="library" scope="PROVIDED" name="GlassFish 4.1.0 - RESTful Web Service" level="application_server_libraries" />
     <orderEntry type="library" name="javax.persistence" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="GlassFish 4.1.0 - RESTful Web Service" level="application_server_libraries" />
     <orderEntry type="library" scope="PROVIDED" name="GlassFish 4.1.0 - RESTful Web Service" level="application_server_libraries" />
   </component>
 </module>
