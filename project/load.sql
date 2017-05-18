@@ -7,6 +7,9 @@
 -- Load sample data.
 @data.sql
 
+-- Load materialized views
+@queries.sql
+
 -- Load procedures
 @procedures.sql
 
