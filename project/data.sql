@@ -3,8 +3,9 @@ INSERT INTO Player VALUES(0, '1upD');
 INSERT INTO Engine VALUES(0, 'Half-Life 2: Episode Two Source Engine', TO_DATE('2007-10-10', 'YYYY-MM-DD'));
 INSERT INTO Engine VALUES(1, 'Source SDK 2013 Source Engine', TO_DATE('2013-06-26', 'YYYY-MM-DD'));
 
-INSERT INTO Game VALUES (0, 'Half-Life 2: Episode 2', 'http://store.steampowered.com/app/420/', TO_DATE('2007-10-10', 'YYYY-MM-DD'), 0);
-INSERT INTO Game VALUES (1, 'Estranged Act 1', 'http://store.steampowered.com/app/261820/', TO_DATE('2014-01-16', 'YYYY-MM-DD'), 1);
+INSERT INTO Game VALUES (0, 'Half-Life 2: Episode 2', 'http://store.steampowered.com/app/420/', TO_DATE('2007-10-10', 'YYYY-MM-DD'), 0, NULL);
+INSERT INTO Game VALUES (2, 'Estranged Act 2', 'http://store.steampowered.com/app/582890/', TO_DATE('2017-05-17', 'YYYY-MM-DD'), 1, NULL);
+INSERT INTO Game VALUES (1, 'Estranged Act 1', 'http://store.steampowered.com/app/261820/', TO_DATE('2014-01-16', 'YYYY-MM-DD'), 1, 2);
 
 INSERT INTO Chapter VALUES ('To the White Forest', 1, 0);
 INSERT INTO Chapter VALUES ('This Vortal Coil', 2, 0);

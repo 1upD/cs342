@@ -12,6 +12,7 @@ CREATE OR REPLACE PROCEDURE startReview(reviewedGameID IN INTEGER, userID IN INT
 	
 		openReviews INTEGER;
 	BEGIN
+		LOCK TABLE Review IN EXCLUSIVE MODE;
 		SELECT COUNT(Review.reviewID) INTO openReviews FROM Review WHERE Review.gameID = reviewedGameID AND Review.playerID = userID AND Review.dateSubmitted IS NULL AND Review.Rating IS NULL;
 		
 		IF openReviews > 0 THEN
@@ -39,6 +40,9 @@ IS
 		-- If the review does not already exist, create it
 		startReview(reviewedGameID, userID);
 	
+		-- Lock the table
+		LOCK TABLE Review IN EXCLUSIVE MODE;
+		
 		-- Get the review ID
 		SELECT Review.reviewID INTO thisReviewID FROM Review WHERE Review.gameID = reviewedGameID AND Review.playerID = userID AND Review.dateSubmitted IS NULL AND Review.Rating IS NULL;
 
@@ -68,6 +72,9 @@ BEGIN
 	-- If the review does not already exist, create it
 	startReview(reviewedGameID, userID);
 
+	-- Lock the table
+	LOCK TABLE Review IN EXCLUSIVE MODE;
+	
 	IF userRating < 0.0 THEN
 		RAISE invalidRatingException;
 	END IF;

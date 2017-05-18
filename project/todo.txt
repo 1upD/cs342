@@ -1,8 +1,7 @@
+* Update vision statement
 * Modify ERD to more appropriately model weak entitiy relationships
 * Add additional data
 	* Write script
-* In queries.sql, add a query that makes use of a self join
-* In queries.sql, add a query that makes use of a NULL value
 * Add upgrades for transactions such as locking - see lab notes
 * Add dump script and output file for datapump
 * Add a 1-M/M-1 relationship to the J2EE RESTful web service

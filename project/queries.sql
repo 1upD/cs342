@@ -45,6 +45,7 @@ FROM (
 		SELECT Review.GameID as ReviewGameID, Review.ReviewID as ReviewID, Review.PlayerID AS PlayerID, Review.Rating As Rating, SUM(ReviewChapter.MinutesPlayed) AS timePlayed
 		FROM Review LEFT OUTER JOIN ReviewChapter
 		ON Review.ReviewID = ReviewChapter.ReviewID
+		WHERE Review.dateSubmitted IS NOT NULL -- Added this WHERE clause to prevent incomplete reviews from being added to the view
 		GROUP BY Review.GameID, Review.ReviewID, Review.PlayerID, Review.Rating
 		)
 	On ReviewGameID = Game.gameID
@@ -52,4 +53,22 @@ FROM (
 	)
 INNER JOIN Engine
 ON GameEngineID = Engine.EngineID;
+
+-- Create a view that displays all incomplete reviews
+-- This view will not be materialized because it will be changed more frequently than it will be used.
+-- This view was added for the final deliverable to demonstrate the use of a NULL value
+DROP VIEW IncompleteReviewsView;
+CREATE VIEW IncompleteReviewsView(ReviewID, PlayerID, GameID, Rating, ReviewComment) AS
+SELECT ReviewID, PlayerID, GameID, Rating, ReviewComment
+FROM REVIEW WHERE Review.DateSubmitted IS NULL;
+
+-- Query the game table and return a record for each game-sequel pair.
+-- This query was added for the final deliverable to demonstrate the use of a self join.
+SELECT original.gameName, sequel.gameName
+FROM Game original, Game sequel
+WHERE sequel.gameID = original.sequelID;
+
+
+
+
 

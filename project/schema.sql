@@ -26,7 +26,9 @@ CREATE TABLE Game(
 	gameURL VARCHAR(64),
 	dateReleased DATE,
 	engineID INTEGER,
-	FOREIGN KEY (engineID) REFERENCES Engine(engineID)
+	sequelID INTEGER,
+	FOREIGN KEY (engineID) REFERENCES Engine(engineID),
+	FOREIGN KEY (sequelID) REFERENCES Game(gameID)
 );
 
 -- Review table models a review of a game by a user. It could have been defined as a weak entity 
